@@ -13,5 +13,5 @@ func main() {
 	lang.RunFor()
 	lang.TestAreaOfVisibility()	
 	lang.TestPointers()
-	types.TestUserTypes()
+	types.TestStruct()
 }
