@@ -1,4 +1,4 @@
-package main
+package functions
 
 import (
 	"fmt"
@@ -6,6 +6,7 @@ import (
 var startFunc string = "Starting function \"%s\"  \n"
 var recoverFuncStr string = "recovery exception called from  function %s : %s \n"
 var issetError = "Я не выполнюсь, если найдется ошибка"
+
 func first() {
 	fmt.Printf(startFunc, "first")
 		// recover
@@ -51,13 +52,13 @@ func third() {
 	panic("someone Exception")
 }
 
-func main() {
+func StartPanicAndRecover() {
 	
-	fmt.Printf(startFunc, "main")
+	fmt.Printf(startFunc, "StartPanicAndRecover")
 	// recover
 	defer func() {
 		if error := recover(); error != nil {
-			fmt.Printf(recoverFuncStr, "Main", error)
+			fmt.Printf(recoverFuncStr, "StartPanicAndRecover", error)
 		}
 	}()
 	first()

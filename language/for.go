@@ -1,9 +1,10 @@
-package main
+package language
 import(
 	"fmt"
+	"google_go/types"
 )
 
-func main() {
+func RunFor() {
 	var arr = []string {
 		"Яблоко", "Груша", "Ананас", "Помидор", "Картошка", "Хлеб",
 	}
@@ -50,13 +51,5 @@ func main() {
 	for _, val := range menu {
 		fmt.Println(val)
 	}
-	fmt.Println(concatString("Привет", " ", "от", " функции", " concatString"))
-}
-
-func concatString(args ... string) string {
-	var result string = ""
-	for _, val := range args {
-		result += val
-	}
-	return result
+	fmt.Println(types.ConcatString("Привет", " ", "от", " функции", " type/strings/concatString"))
 }

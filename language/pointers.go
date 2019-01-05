@@ -1,4 +1,4 @@
-package main
+package language
 
 import(
 	"fmt"
@@ -8,7 +8,7 @@ import(
 /**
 	Указатели - это переменные которые хранят ссылку в область памяти
 */
-func main() {
+func TestPointers() {
 	var titleSpaceCount = 14
 	var tableSpaceCount int = 15
 	var space string

@@ -1,8 +1,8 @@
-package main
+package types
 
 import "fmt"
 
-func main(){
+func TestArrays(){
 	// несколько способов объявить массивы
 	// 1.
 	var arr [3]int8
@@ -12,7 +12,7 @@ func main(){
 	arr2[1] = 245
 	// 3. сам определелит сколько элетентов в массиве и создаст нужную длину
 	arr3 := [...]int16{123,43,554}
-	arr3[2] = 47474
+	arr3[2] = 4600
 
 	for i := 0; i < len(arr2); i++ {
 		fmt.Println(arr2[i])

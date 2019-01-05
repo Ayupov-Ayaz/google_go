@@ -1,4 +1,4 @@
-package main
+package language
 
 import(
 	"fmt"
@@ -12,7 +12,7 @@ var a,b,c string
 var emptyStr = "var \"%s\" is empty string\n"
 var numbStr = "var \"%s\" = %d \n"
 
-func main(){
+func TestAreaOfVisibility(){
 	// переменные назначенные внутри блока if видны только в теле блока if. 
 	// переменная a просто перезапишется
 	if a := "var \"a\" is not empty"; a != "" {

@@ -1,10 +1,10 @@
-package main
+package types
 
 import "fmt"
 
 // Неупорядоченные хэш таблицы
 
-func main() {
+func TestMaps() {
 	// Способы объявить карту:
 
 	// 1. С указанием длины карты

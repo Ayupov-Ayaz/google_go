@@ -1,8 +1,8 @@
-package main
+package types
 
 import "fmt"
 
-func main() {
+func TestSlice() {
 	// Срезы
 
 	// 1 способ, создание среза с указанием емкости среза(15) и текущей длины (5)

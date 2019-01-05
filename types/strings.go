@@ -1,8 +1,8 @@
-package main
+package types
 
 import "fmt"
 
-func main() {
+func TestStrings() {
 	first := "Hello, \n World!!!!"
 	second := `Goodbye, \n World!!!`
 	fmt.Println(first)
@@ -20,9 +20,12 @@ func main() {
 	// это позволит обращаться к каждому символу отдельно, а не к байту
 	runeRus := []rune(rus)
 	fmt.Println(string(runeRus[27:]))
+}
 
-
-
-
-
+func ConcatString(args ... string) string {
+	var result string = ""
+	for _, val := range args {
+		result += val
+	}
+	return result
 }

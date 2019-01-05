@@ -1,4 +1,4 @@
-package main
+package functions
 
 import (
 	"fmt"
@@ -10,38 +10,38 @@ import (
 	например: закрытия подключения к бд, закрытия файла для чтения
 	работает по принципе stack (LIFO)
 */
-func first() {
+func _first() {
 	time.Sleep(100 * time.Millisecond)
 	fmt.Println("fitst")
 }
 
-func second() {
+func _second() {
 	time.Sleep(500 * time.Millisecond)
-	fmt.Println("second")
+	fmt.Println("_second")
 }
 
-func third() {
+func _third() {
 	time.Sleep(1000 * time.Millisecond)
-	fmt.Println("third")
+	fmt.Println("_third")
 }
 
-func fourth() {
+func _fourth() {
 	time.Sleep(500 * time.Millisecond)
-	fmt.Println("fourth")
+	fmt.Println("_fourth")
 }
 
-func fifth() {
+func _fifth() {
 	time.Sleep(100 * time.Millisecond)
-	fmt.Println("fifth")
+	fmt.Println("_fifth")
 }
 
-func main() {
-	fmt.Println("begin main function")
-	defer first()
-	defer second()
-	defer third()
-	defer fourth()
-	defer fifth()
-	fmt.Println("end main function")
+func StartDefer() {
+	fmt.Println("begin start function")
+	defer _first()
+	defer _second()
+	defer _third()
+	defer _fourth()
+	defer _fifth()
+	fmt.Println("end start function")
 
 }
