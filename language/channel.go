@@ -24,9 +24,8 @@ func printer(channel <- chan string){
 	}
 }
 
-func TestChannel(){
+func TestChannel(data string){
 	var channel = make(chan string) // создание канала
-	var testStr = "Hello world!!!"
-	go send(channel, testStr)
+	go send(channel, data)
 	go printer(channel)
 }

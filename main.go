@@ -24,6 +24,8 @@ func main() {
 	// Создание WaitGroup всегда по указателю, нет смысла его копировать
 	wg := &sync.WaitGroup{}
 	lang.TestGo2(3, wg)
-	lang.TestChannel()
+	testStr := "Hello world! =)"
+	lang.TestChannel(testStr)
+	lang.TestSelect(testStr)
 	wg.Wait()
 }
