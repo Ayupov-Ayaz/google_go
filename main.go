@@ -1,10 +1,10 @@
 package main
 
-import(
+import (
+	ent "google_go/Entities"
 	f "google_go/functions"
 	lang "google_go/language"
-	types "google_go/types"
-	ent "google_go/Entities"
+	"google_go/types"
 )
 
 func main() {

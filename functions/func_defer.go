@@ -11,22 +11,22 @@ import (
 	работает по принципе stack (LIFO)
 */
 func _first() {
-	time.Sleep(100 * time.Millisecond)
+	//time.Sleep(100 * time.Millisecond)
 	fmt.Println("fitst")
 }
 
 func _second() {
-	time.Sleep(500 * time.Millisecond)
+	//time.Sleep(500 * time.Millisecond)
 	fmt.Println("_second")
 }
 
 func _third() {
-	time.Sleep(1000 * time.Millisecond)
+	//time.Sleep(1000 * time.Millisecond)
 	fmt.Println("_third")
 }
 
 func _fourth() {
-	time.Sleep(500 * time.Millisecond)
+	//time.Sleep(500 * time.Millisecond)
 	fmt.Println("_fourth")
 }
 

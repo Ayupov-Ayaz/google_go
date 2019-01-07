@@ -32,7 +32,7 @@ func TestPointers() {
 		count := strconv.Itoa(tableSpaceCount)
 		return "| %-" + count + "v | %-14T | %-14v | %-14p |\n";
 	}
-
+	printSpace()
 	fmt.Printf(getTableTitleFormat(), "Имя переменной ", "Тип переменной", "Значение", "Адрес")
 	printSpace()	
 	var intVar int8 = 10
