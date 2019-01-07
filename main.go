@@ -23,11 +23,7 @@ func main() {
 	fmt.Println("\nПотоки: У Main всегда главный поток, который не ждет другие.")
 	// Создание WaitGroup всегда по указателю, нет смысла его копировать
 	wg := &sync.WaitGroup{}
-	lang.TestGo(800, wg)
-	lang.TestGo(300, wg)
-	lang.TestGo(450, wg)
-	lang.TestGo(100, wg)
-	lang.TestGo(700, wg)
+	lang.TestGo2(3, wg)
 	wg.Wait()
 
 }
