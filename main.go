@@ -10,6 +10,7 @@ import (
 )
 
 func main() {
+	lang.TestSwitch()
 	f.StartDefer()
 	f.StartInit()
 	f.StartPanicAndRecover()
