@@ -1,5 +1,5 @@
 package Interfaces
 
-type Flying interface {
+type Flyer interface {
 	Fly()
 }

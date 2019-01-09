@@ -1,5 +1,5 @@
 package Interfaces
 
-type Quack interface {
+type Quacker interface {
 	Quack()
 }
