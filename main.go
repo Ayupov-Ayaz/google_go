@@ -14,6 +14,7 @@ func main() {
 	f.StartDefer()
 	f.StartInit()
 	f.StartPanicAndRecover()
+	lang.TestRune()
 	lang.RunFor()
 	types.TestMaps()
 	lang.TestAreaOfVisibility()
