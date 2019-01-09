@@ -25,10 +25,24 @@ func TestMaps() {
 	strBool["came"] = false
 	emptyMap["one"] = 1
 	emptyMap["two"] = 2
+	strMap := map[string]string{}
+	strMap["Hello"] = "Привет"
 
 	// 5. Удаление
 	delete(emptyMap,"one")
 
+	// 6. Если обратиться к ключу которого не существует, то map нам выдаст значение по умолчанию типа по которому создана map
+	fmt.Println(ages["Ayaz"], strMap["Hey"], strBool["isset"] ) // пустую строку не видно, но она там есть)
+	// что бы понять был ли этот ключ установлен в мапе или нет можно воспользоваться вторым переменным
+	// проверка на существование значения в map
+	_ , ok := strMap["Hey"]
+	if ok {
+		fmt.Println("Значение установлено")
+	} else {
+		fmt.Println("Вы получили значение по умолчанию, по ключу Hey в map strMap значения нету")
+	}
+
+	// 7. Копирование маp-ов только через цикл
 	fmt.Println(first)
 	fmt.Println(strBool)
 	fmt.Println(ages)
