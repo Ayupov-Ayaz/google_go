@@ -14,6 +14,7 @@ func main() {
 	f.StartInit()
 	f.StartPanicAndRecover()
 	lang.RunFor()
+	types.TestMaps()
 	lang.TestAreaOfVisibility()
 	lang.TestPointers()
 	types.TestStruct()
