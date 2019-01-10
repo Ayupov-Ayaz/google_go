@@ -21,9 +21,3 @@ func GoFly(i interface{}) {
 		flyer.Fly()
 	}
 }
-
-func TestFly(iFlyer Interfaces.Flyer) {
-	//if duck, ok := iFlyer.(Entities.Duck); ok {
-	//	fmt.Println(duck)
-	//}
-}
