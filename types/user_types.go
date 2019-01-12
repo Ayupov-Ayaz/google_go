@@ -14,6 +14,8 @@ func TestUserTypes() {
 	fmt.Println(*word.Trim().Wrap("|"))
 }
 
+type withFiles bool
+
 func TestStruct() {
 	apple := ent.Food{ "Apple"}
 	tomato := ent.Food{"Tomato"}
@@ -21,6 +23,10 @@ func TestStruct() {
 		Ingredients: []ent.Food{apple, tomato},
 	}
 	recipe.Food.Name = "Pasta" // После расширения типа Recipe типом Food нам доступны все его методы и свойства
+
+	// использование своих типов
+	var withoutFiles = withFiles(true)
+	fmt.Println(withoutFiles)
 
 	// У Go lang отсутствует переопределение типов, так что можно вызывать методы
 	// как своего типа так и типа на основе которого был расширен

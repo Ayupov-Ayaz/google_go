@@ -3,6 +3,7 @@ package types
 import "fmt"
 
 func TestSlice() {
+	var printFormatDelimetr string= "| slice | %v | %s | \n"
 	// Срезы
 
 	// 1 способ, создание среза с указанием емкости среза(15) и текущей длины (5)
@@ -27,8 +28,10 @@ func TestSlice() {
 	fmt.Println(arr)
 
 	// Копирование срезов
+	// Для копирования одного среза в другой обязательно нужно указать длину при создании среза куда будет
+	// всё скопировано
 	CopyThird := make([]byte, len(third))
-	fmt.Println("Скопировано", copy(CopyThird, third), " элементов среза")
+	fmt.Printf(printFormatDelimetr, copy(CopyThird, third), "Элемента скопировано")
 	// Копирование таким способом позволит нам передать элементы по значению, а не по ссылке
 	third = []byte{2,3,1,6,2}
 	fmt.Println("1) len-" , len(third), "cap-", cap(third)) // len- 5, cap- 5

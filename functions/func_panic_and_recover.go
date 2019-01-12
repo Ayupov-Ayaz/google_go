@@ -3,12 +3,14 @@ package functions
 import (
 	"fmt"
 )
+/**
+ 	Использование функции panic очень затратно, сильно подтормаживает программу
+ */
 var startFunc string = "Starting function \"%s\"  \n"
 var recoverFuncStr string = "recovery exception called from  function %s : %s \n"
 var issetError = "Я не выполнюсь, если найдется ошибка"
 
 func first() {
-	fmt.Printf(startFunc, "first")
 		// recover
 		defer func() {
 			if error := recover(); error != nil {
@@ -23,8 +25,6 @@ func first() {
 }
 
 func second() {
-	fmt.Printf(startFunc, "second")
-		
 	// recover
 		defer func() {
 			if error := recover(); error != nil {
@@ -38,9 +38,6 @@ func second() {
 }
 
 func third() {
-	
-	fmt.Printf(startFunc, "third")
-	
 	// recover
 	defer func() {
 		if error := recover(); error != nil {
@@ -53,8 +50,6 @@ func third() {
 }
 
 func StartPanicAndRecover() {
-	
-	fmt.Printf(startFunc, "StartPanicAndRecover")
 	// recover
 	defer func() {
 		if error := recover(); error != nil {

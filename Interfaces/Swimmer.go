@@ -1,5 +1,5 @@
 package Interfaces
 
-type Swimming interface {
+type Swimmer interface {
 	Swim()
 }

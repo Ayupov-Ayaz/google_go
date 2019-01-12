@@ -1,31 +1,27 @@
 package main
 
 import (
-	"fmt"
-	ent "google_go/Entities"
-	f "google_go/functions"
+	"google_go/Entities"
+	"google_go/functions"
 	lang "google_go/language"
 	"google_go/types"
-	"sync"
 )
 
 func main() {
-	f.StartDefer()
-	f.StartInit()
-	f.StartPanicAndRecover()
+	lang.TestSwitch()
+	functions.StartDefer()
+	functions.StartInit()
+	functions.StartPanicAndRecover()
+	lang.TestRune()
 	lang.RunFor()
-	lang.TestAreaOfVisibility()	
+	types.TestMaps()
+	lang.TestAreaOfVisibility()
 	lang.TestPointers()
 	types.TestStruct()
-	duck := new(ent.Duck)
+	duck := new(Entities.Duck)
 	lang.CookingDuck(duck)
-
-	fmt.Println("\nПотоки: У Main всегда главный поток, который не ждет другие.")
-	// Создание WaitGroup всегда по указателю, нет смысла его копировать
-	wg := &sync.WaitGroup{}
-	lang.TestGo2(3, wg)
-	testStr := "Hello world! =)"
-	lang.TestChannel(testStr)
-	lang.TestSelect(testStr)
-	wg.Wait()
+	lang.TestConst()
+	types.TestSlice()
+	lang.TestChannel()
+	lang.RunGoroutines()
 }

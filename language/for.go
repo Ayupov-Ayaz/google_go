@@ -1,7 +1,7 @@
 package language
-import(
+
+import (
 	"fmt"
-	"google_go/types"
 )
 
 func RunFor() {
@@ -19,37 +19,32 @@ func RunFor() {
 	// 1. 
 	fmt.Println("for 1.")
 	for i := 0; i < len(arr); i++ {
-		fmt.Println(arr[i])
+		//
 	}
-	
-	fmt.Println("\nfor 2.")
+
+	// 2.
 	i := 0
 	for i < len(arr) {
-		fmt.Println(arr[i])
+		//
 		i++
 	}
 
-	// можно также запустить без каких либо аргументов цикла
-	fmt.Println("\nfor 3.")
+	// 3. можно также запустить без каких либо аргументов цикла
 	i = 0
 	for {
 		if(i < len(arr)) {
 			break
 		}
-		fmt.Println(arr[i])
 		i++
 
 	}
-	// аналог foreach, очень полезно использовать с Map
-	fmt.Println("\n for range 1")
+	// 4. аналог foreach, очень полезно использовать с Map
 	for key, val := range menu {
 		fmt.Println(key , val)
 	}
 
-	// можно получить лишь значения без ключей
-	fmt.Println("\n for range 2")
+	// 5. можно получить лишь значения без ключей
 	for _, val := range menu {
 		fmt.Println(val)
 	}
-	fmt.Println(types.ConcatString("Привет", " ", "от", " функции", " type/strings/concatString"))
 }
