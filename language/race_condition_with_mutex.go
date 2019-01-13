@@ -4,7 +4,10 @@ import (
 	"fmt"
 	"sync"
 )
-
+/**
+	Мьютекс большой жирный примитив для синхронизации больших кусков программы или алгоритмов. Он реализован на основе
+	примитива sync.Atomic . Для операций где используется счетчик можно использовать Atomic
+ */
 func StartRaceConditionWithMutex() {
 	var counters = map[int]int{}
 	wg := &sync.WaitGroup{}

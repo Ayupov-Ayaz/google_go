@@ -3,6 +3,7 @@ package language
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
 /**
@@ -32,4 +33,21 @@ func StartExampleRaceConditions() {
 	}
 	wg.Wait()
 	fmt.Println(counters)
+}
+
+/**
+ В данном примере мы запускаем 1000 горутин и их роль только в увеличении счетчика
+ Ожидается, что конечный результат будет 1000, но это далеко не так. Результат рандомный
+ */
+var totalOperation int32 = 0
+func StartExampleRaceConditions2() {
+	for i := 0; i < 1000; i++ {
+		go inc()
+	}
+	time.Sleep(time.Millisecond * 2)
+	fmt.Println(totalOperation)
+}
+
+func inc() {
+	totalOperation++
 }
