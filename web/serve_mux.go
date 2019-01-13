@@ -6,6 +6,7 @@ import (
 	"strconv"
 	"time"
 )
+var mux = http.NewServeMux()
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "URL:", r.URL.String())
@@ -15,7 +16,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
  */
 func StartServeMux(port int) {
 	// Используется для поднятия нескольких разных урлов или несколько разных серверов
-	mux := http.NewServeMux()
 	//можем создать несколько обработчиков, которые обрабатывают одни и те же url-ы но по разному
 	mux.HandleFunc("/", handler)
 	sPort := ":" + strconv.Itoa(port)
@@ -28,3 +28,4 @@ func StartServeMux(port int) {
 	fmt.Printf("Starting server at %s \n", sPort)
 	server.ListenAndServe()
 }
+
