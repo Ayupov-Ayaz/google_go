@@ -20,7 +20,7 @@ func StartContextWithCancel() {
 	for i := 0; i < 10; i++ {
 		go makeWorker(ctx, i, c)
 	}
-	// дожидаемся первого результат и останавливаем
+
 	fondBy := <-c
 	fmt.Println("result fond by", fondBy)
 	// функция обрабатывается если выполняется метод контекста Done()
