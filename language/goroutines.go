@@ -5,6 +5,7 @@ import (
 	"runtime"
 	"strings"
 	"sync"
+	"time"
 )
 
 const(
@@ -13,22 +14,23 @@ const(
 )
 var printFormatGoroutines = "%s%s th%d %s%s%d%s \n"
 // Для задержки выполнения, что бы главный поток (main) ждал другие
-var wg = sync.WaitGroup{}
 //Горутина — это функция, которая может работать параллельно с другими функциями.
 // Для создания горутины используется ключевое слово go, за которым следует вызов функции.
 
 func RunGoroutines() {
+	var wg = &sync.WaitGroup{} // всегда по ссылке! нет смысла копировать его
 	// workers
 	for i := 0; i < goroutinesCount; i++ {
 		// выставляем в очередь нашу горутину в WaitGroup
 		wg.Add(1)
 		// создаем горутину
-		go doSomeWork(i)
+		go doSomeWork(i, wg)
+		time.Sleep(time.Millisecond)
 	}
 	wg.Wait()
 }
 
-func doSomeWork(in int) {
+func doSomeWork(in int, wg *sync.WaitGroup) {
 	for j := 0; j < iterationsCount; j++ {
 		fmt.Printf(formatWork(in, j))
 		// переключиться на другую горутину
