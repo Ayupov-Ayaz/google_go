@@ -17,25 +17,33 @@ func CookiesStart() {
 }
 
 func mainHandler(w http.ResponseWriter, r *http.Request) {
-	// проверка cookies :TODO не работает исправить
-	login, err := r.Cookie("user_login")
-	fmt.Println(r.Cookies(), err)
-	if login != nil {
-		fmt.Fprintln(w,"<a href=\"/logout\">Exit</a> <p>Hello,", login.Value)
+	user_login, err := r.Cookie("user_login")
+	fmt.Println(user_login, err)
+	logged := err == nil && user_login != nil
+	if  logged {
+		fmt.Fprintln(w,"<a href=\"/logout\">Exit</a> <p>Hello,", user_login.Value)
 		return
 	}
-	fmt.Fprintln(w,"<a href=\"/login\">Авторизоваться</a>")
+	fmt.Fprintln(w, "<a href=\"/login\">Авторизоваться</a>")
 }
 
+// показ формы или приветствие
 func showLoginFormHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
-		w.Write(loginFormTpl)
+		user_login, err := r.Cookie("user_login")
+		logged := err == nil && user_login != nil
+		if !logged {
+			w.Write(loginFormTpl)
+		} else {
+			fmt.Fprintln(w, "Привет, ", user_login.Value)
+		}
 	}
 }
 
+// авторизация
 func loginHandler(w http.ResponseWriter, r *http.Request) {
-	rightLogin := "tommy"
-	rightPassword := "qwerty"
+	rightLogin := "ray"
+	rightPassword := "43"
 	err := r.ParseForm()
 	if err !=  nil {
 		fmt.Fprintln(w,"Не удалось распарсить форму")
@@ -48,23 +56,23 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 			Name: "user_login",
 			Value: login,
 			Expires: time.Now().Add(10 * time.Hour),
+			Path: "/",
 		}
 		http.SetCookie(w, &cookie)
 		http.Redirect(w, r, "/main", http.StatusFound)
-	} else {
-		http.Redirect(w, r, "/login", http.StatusFound)
+		return
 	}
+	http.Redirect(w, r, "/login", http.StatusFound)
 }
 
-
-
 func logoutHandler(w http.ResponseWriter, r *http.Request) {
-	user_login, _ := r.Cookie("user_login")
-	if user_login == nil {
+	user_login, err := r.Cookie("user_login")
+	if user_login == nil && err != nil {
 		http.Redirect(w, r, "/main", http.StatusOK)
 		return
 	}
 
-	user_login.Expires = time.Now().AddDate(0, 0, -1)
+	user_login.Expires = time.Now().AddDate(-1, 0, 0)
 	http.SetCookie(w, user_login)
+	http.Redirect(w, r, "/main", http.StatusOK)
 }
