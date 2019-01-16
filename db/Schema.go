@@ -5,6 +5,7 @@ import (
 )
 
 type Schema struct {
+	tableName string
 	create string
 	drop string
 }
@@ -16,7 +17,7 @@ func CreateTables(db *DB) error {
 	for _, schema := range allSchemas {
 		_, err := db.Query(schema.create)
 		if err != nil {
-			fmt.Println("Не удалось выполнить запрос:", schema.create)
+			fmt.Println("Не удалось создать таблицу:", schema.tableName, "\n", err.Error())
 		}
 	}
 	return nil
@@ -29,7 +30,7 @@ func DropTables(db *DB) error {
 	for _, schema := range allSchemas {
 		_, err := db.Query(schema.drop)
 		if err != nil {
-			fmt.Println("Не удалось выполнить запрос:", schema.drop)
+			fmt.Println("Не удалось удалить таблицу:", schema.tableName, "\n", err.Error())
 		}
 	}
 	return nil
@@ -38,6 +39,7 @@ func DropTables(db *DB) error {
 var allSchemas = []Schema{
 	// table users
 	{
+		tableName: "users",
 		create: `CREATE TABLE IF NOT EXISTS users (
   				 id SERIAL NOT NULL PRIMARY KEY,
   				 first_name VARCHAR(150) NOT NULL,
