@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>htmlTemplates</title>
+</head>
+<body>
+    <h1>Users</h1>
+    {{range.Users}}
+        <b>{{.Name}}</b>
+        <br>
+
+        {{/*Пользовательская функция из FuncMap*/}}
+        {{if isUserAdult .}}
+            user is adult, he is {{.Age}} years old
+        {{else}}
+            user is young, he is {{.Age}} years old
+        {{end}}
+        <br>
+
+        {{/*Функция которая принадлежит структуре*/}}
+        {{.IsActive}}      <hr>
+    {{end}}
+</body>
+</html>
